@@ -12,15 +12,39 @@ Det finns olika patientavgifter, beroende på vilken vård du får, och om du be
 Vi ser helst att du betalar med betalkort när du har tid hos en mottagning, men vi tar även emot kontanter. Blir du inlagd på sjukhuset får du en faktura efter din sjukhusvistelse.
 Läs mer på 1177.se om patientavgifter och högkostnadsskydd."""
 
+import re
+
+# Normalize line breaks before any text interpretation.
+# Text copied from PDF/web often contains mixed \r and \n.
+
+example_text = example_text.replace("\r\n", "\n").replace("\r", "\n") 
+
 # Split the text into paragraph divisions.:
 
 paragraph_divisions = example_text.split("\n\n")
+
+# Define patterns for stepwise interpretation (currently not used).
+# Define on Sentencestarts like "du kan också/även", "man kan även/också", "det går också/även att" that indicate additional instructions.
+
+PATTERNS = [
+    r"^\s*du\s+kan\s+(?:\w+\s+)?(?:också|även)\b",
+    r"^\s*du\s+kan\s+(?:också|även)\b",
+    r"^\s*man\s+kan\s+(?:\w+\s+)?(?:också|även)\b",
+    r"^\s*det\s+går\s+(?:också|även)\s+att\b",
+]
+
+# Function to check if a sentence indicates a new step following PATTERNS above.
+
+def is_new_step(sentence: str) -> bool:       #"sentence: str" is a typehint for string, function returns True/False
+    cleaned_sentence = sentence.strip().lower()
+    return any(re.search(pattern, cleaned_sentence) for pattern in PATTERNS)
 
 #loop through paragraphs 
 for paragraph_index, paragraph in enumerate(paragraph_divisions):
     print(f"Paragraph {paragraph_index + 1}:\n")
     # Split the paragraph into sentences.
     sentences = paragraph.split(". ")
+    
     # Loop through sentences in the paragraph.
     for sentence_index, sentence in enumerate(sentences):
         # Add a period back if it was removed during splitting.
@@ -29,7 +53,21 @@ for paragraph_index, paragraph in enumerate(paragraph_divisions):
         print(f"  Sentence {sentence_index + 1}: {sentence}")
     print("\n")  # Add a newline for better readability between paragraphs
   
-
+#print(repr(example_text))
 print(paragraph_divisions)
+
+# next step: # PoC: Stepwise text interpreter
+# Current status: Sprint 2 (in progress)
+# What works: Text is split into paragraphs and sentences and printed stepwise.
+# started to sort sentences into steps based on patterns
+
+# What needs to be done:
+# assemble definitions for stepwise interpretation (def is_new_step and def split_into_steps)
+
+# Next step:
+# - Improve sentence splitting so that one instruction = one step
+# - Concider handling simple break words: "eller", "om", "annars"
+# Rule of thumb:
+# - Prefer too many short steps over long, heavy ones
 
 
