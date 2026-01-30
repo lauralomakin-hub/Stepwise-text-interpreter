@@ -2,6 +2,7 @@
 
 ## Overview
 This project is a **"proof of concept"** exploring how long, compact instructional texts can be transformed into **clear, step-by-step instructions**.
+**This is an early-stage PoC, developed as part of my AI & ML studies.
 
 The initial motivation comes from real-world contexts such as healthcare and public services, where important information is often presented in dense text that can be difficult to process -Next steps
 
