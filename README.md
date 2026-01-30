@@ -3,7 +3,15 @@
 ## Overview
 This project is a **"proof of concept"** exploring how long, compact instructional texts can be transformed into **clear, step-by-step instructions**.
 
-The initial motivation comes from real-world contexts such as healthcare and public services, where important information is often presented in dense text that can be difficult to process — especially for people with:
+The initial motivation comes from real-world contexts such as healthcare and public services, where important information is often presented in dense text that can be difficult to process -Next steps
+
+Expand PATTERNS with more step cues (e.g. "Observera", "Notera", list markers like "1.", "-", "•")
+
+Add simple formatting options (e.g. blank line between steps, keep original line breaks if useful)
+
+Add tests with multiple example texts (manuals, school info, healthcare info)
+
+(Future) optional LLM rewriting step per step (calm/simplified language) — separate module, off by default especially for people with:
 - cognitive difficulties
 - neurodivergence
 - limited language proficiency
@@ -56,3 +64,22 @@ Examples of areas that could be explored in later stages of the project:
 
 ## Status
 This project is in an early PoC phase and is intended as a learning and exploration project, developed step by step.
+
+## Current status (v1)
+ Normalizes line breaks  
+ Splits text into paragraphs (blank-line based)  
+ Splits paragraphs into sentences with a rule-based regex that avoids splitting inside URLs/domains  
+ Heuristic title detection: if the first sentence looks like a heading, it is printed as a title and removed from steps  
+ Step grouping: creates new steps when a sentence matches `PATTERNS` (e.g. "Det går även att ...")  
+ Console output: prints Title + numbered Steps
+
+## Next steps
+
+ Expand PATTERNS with more step cues (e.g. "Observera", "Notera", list markers like "1.", "-", "•")
+ Add simple formatting options (e.g. blank line between steps, keep original line breaks if useful)
+ Add tests with multiple example texts (manuals, school info, healthcare info)
+ (Future) optional LLM rewriting step per step (calm/simplified language), separate module, off by default
+
+## How to run
+```bash
+python stepwise_interpreter_v1.py
