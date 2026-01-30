@@ -1,9 +1,14 @@
 #demo stepwise interpreter - proof of concept
 # Demo text used for coginitive walkthroughs load reduction
-# NOT for medical purposes!
+# Target user: people who get cognitively overloaded by dense instructions (e.g. NPF, stress, fatigue)
+# Scope limit: does NOT interpret meaning, make decisions, or give advice — only splits and orders text
+#              NOT for medical purposes!
 
 #Note_to_me: tripple quotes for multi-line strings in Python
 #            https://docs.python.org/3/tutorial/introduction.html#strings
+
+# TODO (future): add optional LLM step to rewrite each step in calm, simplified language
+
 
 example_text = """Betalning och anmälan
 När du kommer till NU-sjukvården checkar du in och betalar via mobiltelefonen på vgregion.se/checkin eller självincheckningskiosk. Använd bank-id eller den självincheckningskod som du ser i kallelsen.
@@ -22,6 +27,9 @@ example_text = example_text.replace("\r\n", "\n").replace("\r", "\n")
 # Split the text into paragraph divisions.:
 
 paragraph_divisions = example_text.split("\n\n")
+
+
+
 
 # Define patterns for stepwise interpretation (currently not used).
 # Define on Sentencestarts like "du kan också/även", "man kan även/också", "det går också/även att" that indicate additional instructions.
@@ -55,19 +63,4 @@ for paragraph_index, paragraph in enumerate(paragraph_divisions):
   
 #print(repr(example_text))
 print(paragraph_divisions)
-
-# next step: # PoC: Stepwise text interpreter
-# Current status: Sprint 2 (in progress)
-# What works: Text is split into paragraphs and sentences and printed stepwise.
-# started to sort sentences into steps based on patterns
-
-# What needs to be done:
-# assemble definitions for stepwise interpretation (def is_new_step and def split_into_steps)
-
-# Next step:
-# - Improve sentence splitting so that one instruction = one step
-# - Concider handling simple break words: "eller", "om", "annars"
-# Rule of thumb:
-# - Prefer too many short steps over long, heavy ones
-
 
