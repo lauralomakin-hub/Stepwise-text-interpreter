@@ -73,9 +73,9 @@ for paragraph_index, paragraph in enumerate(paragraph_divisions):
         ends_like_sentence = first.endswith((".", "!", "?"))
 
         if(
-            not looks_like_instruction,
-            is_short_enough,
-            not ends_like_sentence,
+            not looks_like_instruction and
+            is_short_enough and
+            not ends_like_sentence
         ):
             title = sentences.pop(0)
         
