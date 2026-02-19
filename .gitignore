@@ -18,3 +18,9 @@ env/
 # OS
 .DS_Store
 Thumbs.db
+
+# Logs
+*.log
+
+# Environment variables
+.env
