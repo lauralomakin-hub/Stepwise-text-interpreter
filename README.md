@@ -52,6 +52,10 @@ The project is inspired by experience from education, accessibility work, and in
 
 The current focus is on exploring the problem, not on applying advanced methods.
 
+## Development context
+As this is my first independent project, AI tools were used as a learning aid during the initial setup and structuring phase.
+All logic and further development have been reviewed and worked through manually to ensure understanding.
+
 
 ## Possible future exploration
 Examples of areas that could be explored in later stages of the project:
