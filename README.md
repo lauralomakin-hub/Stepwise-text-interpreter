@@ -1,10 +1,12 @@
 # Stepwise Text Interpreter – PoC
 
 ## Overview
-This project is a **"proof of concept"** exploring how long, compact instructional texts can be transformed into **clear, step-by-step instructions**.
-**This is an early-stage PoC, developed as part of my AI & ML studies.
+This project is a **proof of concept** exploring how long, compact instructional texts can be transformed into **clear, step-by-step instructions**.
+This is an early-stage PoC, developed as part of my AI & ML studies.
 
-The initial motivation comes from real-world contexts such as healthcare and public services, where important information is often presented in dense text that can be difficult to process -Next steps
+The initial motivation comes from real-world contexts such as healthcare and public services, where important information is often presented in dense text that can be difficult to process 
+
+**Next steps**:
 
 Expand PATTERNS with more step cues (e.g. "Observera", "Notera", list markers like "1.", "-", "•")
 
@@ -42,7 +44,7 @@ This PoC explores how **text structure itself** can act as a form of support:
 - reducing the need to hold everything in working memory
 - making instructions easier to follow in situations where stress and anxiety might cause for cognitive overload
 
-The project is inspired by experience from education, accessibility work, and interest in human-centred AI.
+The project is inspired by experience from education, accessibility work, and interest in responsible and user-oriented AI.
 
 
 ## Technical approach (early stage)
